@@ -37,6 +37,9 @@ opts.add_eval_options(parser)
 opts.add_diversity_opts(parser)
 opt = parser.parse_args()
 opt.caption_model = 'newfc'
+opt.infos_path = '/home/zzgyf/github_yifan/neural_talk_pytorch/models/infos_trans_nscl-best.pkl'
+with open(opt.infos_path, 'rb') as f:
+    infos = utils.pickle_load(f)
 
 replace = ['input_fc_dir', 'input_att_dir', 'input_box_dir', 'input_label_h5', 'input_json', 'batch_size', 'id']
 ignore = ['start_from']

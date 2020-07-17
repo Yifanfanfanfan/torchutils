@@ -61,7 +61,7 @@ cocotest_bu_att = np.load('/home/zzgyf/github_yifan/ImageCaptioning.pytorch/data
 # calculate model FLOPs
 model.train(False)
 model.eval()
-total_flops = tu.get_model_flops(model, cocotest_bu_fc, cocotest_bu_att)
+total_flops = tu.get_model_flops(model, cocotest_bu_fc, cocotest_bu_att, vocab)
 print('Total model FLOPs: {:,}'.format(total_flops))
 
 

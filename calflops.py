@@ -36,7 +36,7 @@ parser.add_argument('--force', type=int, default=0,
 opts.add_eval_options(parser)
 opts.add_diversity_opts(parser)
 opt = parser.parse_args()
-opt.caption_model == 'newfc'
+opt.caption_model = 'newfc'
 opt.vocab = vocab
 model = models.setup(opt)
 cocotest_bu_fc = np.load('~/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_fc/36184.npy')

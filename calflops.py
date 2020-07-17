@@ -37,6 +37,19 @@ opts.add_eval_options(parser)
 opts.add_diversity_opts(parser)
 opt = parser.parse_args()
 opt.caption_model = 'newfc'
+
+replace = ['input_fc_dir', 'input_att_dir', 'input_box_dir', 'input_label_h5', 'input_json', 'batch_size', 'id']
+ignore = ['start_from']
+
+for k in vars(infos['opt']).keys():
+    if k in replace:
+        setattr(opt, k, getattr(opt, k) or getattr(infos['opt'], k, ''))
+    elif k not in ignore:
+        if not k in vars(opt):
+            vars(opt).update({k: vars(infos['opt'])[k]}) # copy over options from model
+
+vocab = infos['vocab'] # ix -> word mapping
+
 opt.vocab = vocab
 model = models.setup(opt)
 cocotest_bu_fc = np.load('~/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_fc/36184.npy')

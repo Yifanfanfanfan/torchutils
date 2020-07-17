@@ -4,6 +4,7 @@ import torch
 import argparse
 import os
 import sys
+sys.path.append('../')
 # from resnet_1d import ResNet50_1d
 # from resnet_1d_lite import ResNet50_1d_shrink
 from thop import profile

@@ -37,7 +37,7 @@ opts.add_eval_options(parser)
 opts.add_diversity_opts(parser)
 opt = parser.parse_args()
 opt.caption_model = 'newfc'
-opt.infos_path = '/home/zzgyf/github_yifan/neural_talk_pytorch/models/infos_trans_nscl-best.pkl'
+opt.infos_path = '/home/zzgyf/github_yifan/ImageCaptioning.pytorch/models/infos_fc_nsc-best.pkl'
 with open(opt.infos_path, 'rb') as f:
     infos = utils.pickle_load(f)
 
@@ -55,7 +55,7 @@ vocab = infos['vocab'] # ix -> word mapping
 
 opt.vocab = vocab
 model = models.setup(opt)
-cocotest_bu_fc = np.load('~/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_fc/36184.npy')
+cocotest_bu_fc = np.load('/home/zzgyf/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_fc/36184.npy')
 #model = torchvision.models.alexnet()
 # calculate model FLOPs
 model.train(False)

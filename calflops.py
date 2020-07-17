@@ -16,7 +16,7 @@ import captioning.utils.opts as opts
 import captioning.models as models
 from captioning.data.dataloader import *
 import numpy as np
-
+import captioning.utils.misc as utils
 import torchvision
 import torchutils as tu
 

@@ -56,7 +56,7 @@ vocab = infos['vocab'] # ix -> word mapping
 opt.vocab = vocab
 model = models.setup(opt)
 cocotest_bu_fc = np.load('/home/zzgyf/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_fc/36184.npy')
-cocotest_bu_att = np.load('/home/zzgyf/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_att/36184.npy')
+cocotest_bu_att = np.load('/home/zzgyf/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_att/36184.npz')
 #model = torchvision.models.alexnet()
 # calculate model FLOPs
 model.train(False)

@@ -56,12 +56,12 @@ vocab = infos['vocab'] # ix -> word mapping
 opt.vocab = vocab
 model = models.setup(opt)
 cocotest_bu_fc = np.load('/home/zzgyf/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_fc/36184.npy')
-print(cocotest_bu_fc)
+cocotest_bu_att = np.load('/home/zzgyf/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_att/36184.npy')
 #model = torchvision.models.alexnet()
 # calculate model FLOPs
 model.train(False)
 model.eval()
-total_flops = tu.get_model_flops(model, cocotest_bu_fc)
+total_flops = tu.get_model_flops(model, cocotest_bu_fc, cocotest_bu_att)
 print('Total model FLOPs: {:,}'.format(total_flops))
 
 

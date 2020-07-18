@@ -69,12 +69,12 @@ masks = torch.randint(1,(10, 5, 18))
 model.train(False)
 model.eval()
 total_flops = tu.get_model_flops(model, cocotest_bu_fc, cocotest_bu_att, labels, masks)
-print('Total model FLOPs: {:,}'.format(total_flops))
+print('Total model FLOPs: {:,}'.format(total_flops/pow(10,9)))
 
 
 # calculate total model parameters
 total_params = tu.get_model_param_count(model)
-print('Total model params: {:,}'.format(total_params))
+print('Total model params: {:,}'.format(total_params/pow(10,6)))
 
 
 

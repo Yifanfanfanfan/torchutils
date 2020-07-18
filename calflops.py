@@ -57,11 +57,13 @@ opt.vocab = vocab
 model = models.setup(opt)
 cocotest_bu_fc = np.load('/home/zzgyf/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_fc/36184.npy')
 cocotest_bu_att = np.load('/home/zzgyf/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_att/36184.npz')
+labels = torch.randint(5200, (10, 5, 18))
+masks = torch.randint(1,(10, 5, 18))
 #model = torchvision.models.alexnet()
 # calculate model FLOPs
 model.train(False)
 model.eval()
-total_flops = tu.get_model_flops(model, cocotest_bu_fc, cocotest_bu_att, opt.vocab)
+total_flops = tu.get_model_flops(model, cocotest_bu_fc, cocotest_bu_att, labels, masks, None)
 print('Total model FLOPs: {:,}'.format(total_flops))
 
 

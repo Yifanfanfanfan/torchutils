@@ -56,9 +56,9 @@ vocab = infos['vocab'] # ix -> word mapping
 opt.vocab = vocab
 model = models.setup(opt)
 cocotest_bu_fc = np.load('/home/zzgyf/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_fc/36184.npy')
-print('cocotest_bu_fc is{}'.format(cocotest_bu_fc))
+print('cocotest_bu_fc is{}'.format(cocotest_bu_fc.shape))
 print('the type of cocotest_bu_fc is {}'.format(type(cocotest_bu_fc)))
-#print('the size of cocotest_bu_fc is {}'.format(cocotest_bu_fc.size()))
+print('the size of cocotest_bu_fc is {}'.format(l(cocotest_bu_fc)))
 cocotest_bu_att = np.load('/home/zzgyf/github_yifan/ImageCaptioning.pytorch/data/cocotest_bu_att/36184.npz')
 labels = torch.randint(5200, (10, 5, 18))
 masks = torch.randint(1,(10, 5, 18))
